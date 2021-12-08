@@ -17,7 +17,7 @@ app.config['DATABASE_URL'] = 'postgresql+psycopg2://postgres:aidar_00@localhost:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-engine = create_engine('postgresql://postgres:aidar_00@localhost/Homework')
+engine = create_engine('postgresql+psycopg2://postgres:aidar_00@localhost:5433/Homework?sslmode=require')
 Session = sessionmaker(engine)
 session = Session()
 
