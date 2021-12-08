@@ -13,11 +13,12 @@ app = Flask(__name__)
 app.secret_key = "Secret Key"
 
 #SqlAlchemy Database Configuration With Mysql
-app.config['DATABASE_URL'] = 'postgresql://postgres:aidar_00@localhost:5433/Homework'
+app.config['DATABASE_URL'] = os.environ['DATABASE_URL']
+#'postgresql://postgres:aidar_00@localhost:5433/Homework'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-engine = create_engine('postgresql://postgres:aidar_00@localhost:5433/Homework')
+engine = create_engine(os.environ['DATABASE_URL'])
 Session = sessionmaker(engine)
 session = Session()
 
